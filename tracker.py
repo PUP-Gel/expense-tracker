@@ -6,8 +6,7 @@ print("=" * 40)
 print("\t\tEXPENSE TRACKER")
 print("\tKnow where your money goes.")
 print("=" * 40)
-
-print("\nWelcome! This is your personal expense tracker.\n")
+print()
 
 print("MAIN MENU")
 print("\t[1] Add an expense\t\t(coming soon)")
