@@ -1,4 +1,4 @@
-# Expense-Tracker - Installment 3
+# Expense-Tracker - Installment 4
 # Author: Stephen Nigel A. Cabaluna
 # A personal expense tracker landing page
 
@@ -21,10 +21,32 @@ subtotal = 0
 
 item1 = input("First expense? ")
 amount1 = float(input("Amount? "))
+
+if amount1 > 200:
+    print("  Huge expense - are you sure?")
+elif amount1 > 100:
+    print("  Big expense.")
+elif amount1 > 50:
+    print("  Moderate expense.")
+else:
+    print("  Small expense.")
+
 subtotal += amount1
 
 item2 = input("Second expense? ")
 amount2 = float(input("Amount? "))
+
+if amount1 > 100 and amount2 > 100:
+    print("  Two big expenses in a row - slow down!")
+elif amount2 > 200:
+    print("  Huge expense - are you sure?")
+elif amount2 > 100:
+    print("  Big expense.")
+elif amount2 > 50:
+    print("  Moderate expense.")
+else:
+    print("  Small expense.")
+
 subtotal += amount2
 
 tax_percent = float(input("Tax rate %? "))
@@ -39,13 +61,20 @@ left = budget - total
 
 print("-" * 40)
 print("SUMMARY")
-print(f"\t- {item1}:\t${amount1}")
-print(f"\t- {item2}:\t${amount2}")
+print(f"    - {item1}:\t${amount1}")
+print(f"    - {item2}:\t${amount2}")
 print(f"Subtotal:\t\t${subtotal}")
 print(f"Average:\t\t${average}")
 print(f"Tax ({tax_percent}%):\t\t${tax}")
 print(f"Grand total:\t\t${total}")
-print(f"Over budget?\t\t{over_budget}")
-print(f"Left in budget:\t\t${left}")
+
+if over_budget:
+    over_amount = total - budget
+    print(f"Over by ${over_amount}!")
+elif total > (budget * 0.9):
+    print(f"Careful: only ${left} left.")
+else:
+    print(f"Within budget. ${left} left.")
+
 print("-" * 40)
-print("Made by: Stephen Nigel A. Cabaluna  |  Installment 3")
+print("Made by: Stephen Nigel A. Cabaluna  |  Installment 4")
